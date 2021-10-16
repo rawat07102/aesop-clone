@@ -41,7 +41,7 @@ const ProductList: React.FunctionComponent = () => {
     <section className="relative my-16 product-section">
       {index > 0 && (
         <button
-          className="flex items-center justify-center absolute left-0 top-1/2 z-50 w-20 h-20 bg-primaryDark text-white transform transition-transform ease-in -translate-x-full"
+          className="flex items-center justify-center absolute left-0 top-1/2 z-50 w-20 h-20 bg-primaryDark text-white transform transition-transform ease-in-out -translate-x-full"
           onClick={() => {
             setIndex((p) => p - 1);
           }}
@@ -58,7 +58,10 @@ const ProductList: React.FunctionComponent = () => {
         {products.map(({ name, description }, i) => (
           <div
             key={name}
-            className="flex cursor-pointer items-center flex-col w-1/3 h-96 max-w-md flex-shrink-0"
+            className="flex cursor-pointer items-center flex-col w-1/3 max-w-md flex-shrink-0"
+            style={{
+              height: "400px",
+            }}
           >
             <div className="relative h-full w-full">
               <Image
@@ -75,7 +78,7 @@ const ProductList: React.FunctionComponent = () => {
       </div>
       {index <= 4 && (
         <button
-          className="flex items-center justify-center absolute right-0 top-1/2 z-50 w-20 h-20 bg-primaryDark text-white transform transition-transform translate-x-full ease-in"
+          className="flex items-center justify-center absolute right-0 top-1/2 z-50 w-20 h-20 bg-primaryDark text-white transform transition-transform translate-x-full ease-in-out"
           onClick={() => {
             setIndex((p) => p + 1);
           }}
@@ -83,7 +86,14 @@ const ProductList: React.FunctionComponent = () => {
           <ChevronIcon className="-rotate-90" />
         </button>
       )}
-      <div className="w-1/4 bg-primaryDark transition-all duration-500 pt-px mt-8"></div>
+      <div className="mx-12 bg-primary  h-px mt-8">
+        <div
+          className="w-1/6 bg-primaryDark h-full transition-all duration-500"
+          style={{
+            transform: `translateX(${index * 100}%)`,
+          }}
+        ></div>
+      </div>
     </section>
   );
 };
