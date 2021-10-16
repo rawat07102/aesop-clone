@@ -1,16 +1,60 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-link:hover span {
+  @apply translate-x-0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.product-section:hover button {
+  transform: translateX(0%);
 }
 
-* {
-  box-sizing: border-box;
+@layer base {
+  body {
+    @apply font-SuisseRegular;
+    @apply text-sm;
+    @apply tracking-wide;
+    @apply overflow-x-hidden;
+  }
+
+  @font-face {
+    font-family: Suisse Medium;
+    font-weight: 500;
+    src: url(/fonts/SuisseMedium) format("woff");
+  }
+
+  @font-face {
+    font-family: Suisse Regular;
+    font-weight: 400;
+    src: url(/fonts/SuisseRegular) format("woff");
+  }
+
+  @font-face {
+    font-family: Zapf Humanist;
+    font-weight: 400;
+    src: url(/fonts/ZapfHumanist) format("woff");
+  }
+}
+
+@layer utilities {
+  .h-screen-95 {
+    height: 95vh;
+  }
+
+  .h-screen-85 {
+    height: 85vh;
+  }
+
+  .h-screen-90 {
+    height: 90vh;
+  }
+
+  .h-screen-5 {
+    height: 5vh;
+  }
+
+  .border-1 {
+    border-width: 1px;
+  }
 }
